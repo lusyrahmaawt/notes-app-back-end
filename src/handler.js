@@ -41,6 +41,7 @@ const deleteNote = (request, h) => {
   };
 };
 
+
 module.exports = {
   // ... previous handlers
   updateNote,
