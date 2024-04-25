@@ -1,62 +1,62 @@
 const notes = require('./notes');
 const { nanoid } = require('nanoid');
 
-// const addNote = (request, h) => {
-//   const { title, tags, body } = request.payload;
+const addNote = (request, h) => {
+  const { title, tags, body } = request.payload;
 
-//   const id = nanoid(16);
-//   const createdAt = new Date().toISOString();
-//   const updatedAt = createdAt;
+  const id = nanoid(16);
+  const createdAt = new Date().toISOString();
+  const updatedAt = createdAt;
 
-//   const newNote = {
-//     title, tags, body, id, createdAt, updatedAt,
-//   };
+  const newNote = {
+    title, tags, body, id, createdAt, updatedAt,
+  };
 
-//   notes.push(newNote);
+  notes.push(newNote);
 
-//   const isSuccess = notes.filter((note) => note.id === id).length > 0;
+  const isSuccess = notes.filter((note) => note.id === id).length > 0;
 
-//   if (isSuccess) {
-//     const response = h.response({
-//       status: 'success',
-//       message: 'Catatan berhasil ditambahkan',
-//       data: {
-//         noteId: id,
-//       },
-//     });
-//     response.code(201);
-//     return response;
-//   }
-// }
+  if (isSuccess) {
+    const response = h.response({
+      status: 'success',
+      message: 'Catatan berhasil ditambahkan',
+      data: {
+        noteId: id,
+      },
+    });
+    response.code(201);
+    return response;
+  }
+}
 
-// const getAllNotes = () => ({
-//   status: 'success',
-//   data: {
-//     notes,
-//   },
-// });
+const getAllNotes = () => ({
+  status: 'success',
+  data: {
+    notes,
+  },
+});
 
-// const getNoteById = (request, h) => {
-//   const { id } = request.params;
+const getNoteById = (request, h) => {
+  const { id } = request.params;
 
-//   const note = notes.filter((n) => n.id === id)[0];
+  const note = notes.filter((n) => n.id === id)[0];
 
-//   if (note) {
-//     return {
-//       status: 'success',
-//       data: {
-//         note,
-//       },
-//     };
-//   }
+  if (note) {
+    return {
+      status: 'success',
+      data: {
+        note,
+      },
+    };
+  }
 
-//   const response = h.response({
-//     status: 'fail',
-//     message: 'Catatan tidak ditemukan',
-//   });
-//   response.code(404);
-//   return response;
-// };
+  const response = h.response({
+    status: 'fail',
+    message: 'Catatan tidak ditemukan',
+  });
+  response.code(404);
+  return response;
+};
 
 
 const updateNote = (request, h) => {
@@ -104,7 +104,7 @@ const deleteNote = (request, h) => {
 module.exports = {
   updateNote,
   deleteNote,
-  // addNote,
-  // getAllNotes,
-  // getNoteById,
+  addNote,
+  getAllNotes,
+  getNoteById,
 };
