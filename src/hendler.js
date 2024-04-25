@@ -1,4 +1,4 @@
-const notes = require('./src/notes');
+const notes = require('./notes');
 
 const updateNote = (request, h) => {
   const noteId = request.params.id;
